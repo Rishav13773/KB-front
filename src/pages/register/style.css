@@ -1,0 +1,72 @@
+/*LOGIN*/
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login_header {
+  font-family: "Kode";
+  font-size: x-small;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reg_mail input {
+  padding: 5px;
+  width: 13rem;
+  border: 1px solid #a0cfde;
+}
+.reg_mail input:focus {
+  outline: none;
+}
+
+.btn_sub {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.btn_sub button {
+  padding: 5px;
+  width: 100px;
+  font-weight: bold;
+  color: #a0cfde;
+  background-color: rgb(36, 33, 33);
+  border: 1px solid rgb(255, 255, 255);
+}
+.btn_sub button:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+.reg_nav {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.err_wrap {
+  position: absolute;
+  border: 1px solid rgb(160, 207, 222);
+  background-color: skyblue;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 15rem;
+  margin-top: -1.8rem;
+}
+
+.err_wrap:empty {
+  display: none;
+}

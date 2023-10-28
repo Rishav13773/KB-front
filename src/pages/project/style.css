@@ -1,0 +1,12 @@
+.null_txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.null_txt h1 {
+  font-weight: lighter;
+  color: cadetblue;
+  opacity: 50%;
+}

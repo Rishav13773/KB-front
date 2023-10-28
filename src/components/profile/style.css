@@ -1,0 +1,130 @@
+/*PROFILE INPUT START */
+.profile_wrap{
+  background-color: #a0cfde;
+  margin: 20px;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.profile_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile_pic {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile_pic img {
+  width: 200px;
+  border-radius: 100px;
+  border: 1px solid red !important;
+}
+
+.btn_save {
+  display: flex;
+  gap: 13px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.btn_save button {
+  padding: 5px;
+  width: 100px;
+  font-weight: bold;
+  color: #a0cfde;
+  background-color: rgb(36, 33, 33);
+  border: 1px solid rgb(255, 255, 255);
+}
+.btn_save button:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+.profile_first input {
+  padding: 5px;
+  width: 13rem;
+  border: 1px solid #a0cfde;
+}
+.profile_first input:focus {
+  outline: none;
+}
+
+.profile_last input {
+  padding: 5px;
+  width: 13rem;
+  border: 1px solid #a0cfde;
+}
+.profile_last input:focus {
+  outline: none;
+}
+
+.profile_bio textarea {
+  padding: 5px;
+  width: 13rem;
+  border: 1px solid #a0cfde;
+}
+.profile_bio textarea:focus {
+  outline: none;
+}
+/*PROFILE INPUT END */
+
+/*SHOW PROFILE START*/
+.sprofile_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 4rem;
+  background-color: #a0cfde;
+  margin: 20px;
+  border-radius: 50px;
+  padding-bottom: 30px;
+}
+
+.sprofile_wrap label{
+  margin-right: 5px;
+}
+
+.sprofile_pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 1px solid red !important;
+}
+
+.sprofile_first {
+  display: flex;
+}
+.sprofile_last {
+  display: flex;
+}
+.sprofile_bio{
+  display: flex;
+  width: 500px;
+}
+.sprofile_bio p{
+  word-break: break-all;
+}
+
+.sbtn_save {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.sbtn_save button {
+  padding: 5px;
+  width: 100px;
+  font-weight: bold;
+  color: #a0cfde;
+  background-color: rgb(36, 33, 33);
+  border: 1px solid rgb(255, 255, 255);
+}
+.sbtn_save button:hover {
+  cursor: pointer;
+  background-color: black;
+}

@@ -1,0 +1,69 @@
+.projecSetting_window {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 370px;
+  background-color: whitesmoke;
+  box-shadow: 2px 1px 10px rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 3rem;
+}
+
+.icon_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 26px;
+  padding: 13px;
+  cursor: pointer;
+}
+
+.des_wrap label {
+  position: absolute;
+}
+
+.des_wrap textarea {
+  margin-left: 7rem;
+  border: 1px solid #a0cfde;
+  padding: 5px;
+}
+
+.des_wrap textarea:focus {
+  outline: none;
+}
+
+.name_input {
+  border: 1px solid #a0cfde;
+  padding: 5px;
+}
+
+.name_input:focus {
+  outline: none;
+}
+
+.create_btn button {
+  padding: 5px;
+  width: 100px;
+  font-weight: bold;
+  color: #a0cfde;
+  background-color: rgb(36, 33, 33);
+  border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.create_btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 20px;
+}

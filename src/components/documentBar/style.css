@@ -1,0 +1,31 @@
+.projectBar_wrap {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-start;
+  height: 3rem;
+  box-shadow: 2px 1px 10px rgb(0, 0, 0);
+  border-radius: 1px;
+}
+
+.projectBar_wrap button {
+  position: relative;
+  width: 8rem;
+  padding-left: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  background-color: #a0cfde;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 2px 1px 10px rgb(0, 0, 0);
+}
+
+.new_icon {
+  position: absolute;
+  font-size: 30px;
+  padding-top: 8px;
+  padding-left: 10px;
+  z-index: 100;
+  cursor: pointer;
+  color: #1788ad;
+}
