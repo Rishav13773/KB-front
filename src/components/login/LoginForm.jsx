@@ -13,10 +13,12 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const [login, setLogin] = useState(loginInfos);
     const { email, password } = login;
+
     const handleLoginChange = (e) => {
         const { name, value } = e.target;
         setLogin({ ...login, [name]: value });
     };
+
     const loginValidation = Yup.object({
         email: Yup.string()
             .required("Email address is required.")
@@ -37,6 +39,7 @@ const LoginForm = () => {
                 }
             );
             dispatch({ type: "LOGIN", payload: data });
+            console.log(data)
             Cookies.set("user", JSON.stringify(data));
             navigate("/home");
         } catch (error) {
