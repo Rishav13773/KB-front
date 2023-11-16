@@ -1,10 +1,63 @@
 .project_wrap {
   display: flex;
   align-items: center;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 115px;
+}
+.project_wrap:hover {
+  background-color: var(--hoverback);
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .project_wrap h2 {
   font-weight: 400;
+}
+
+.dropmenu {
+  position: absolute;
+}
+
+.item-contain {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 2.2rem;
+  margin-right: 10px;
+  width: 260px;
+  /* height: 220px; */
+  box-shadow: var(
+    --dt-surface2-shadow,
+    0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15)
+  );
+  border-radius: 10px;
+  background-color: white;
+  max-height: 200px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-in-out;
+}
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 200px; /* Adjust the value based on your content */
+    opacity: 1;
+  }
+}
+
+.item-contain li {
+  list-style: none;
+  padding: 5px;
+  padding-left: 1rem;
+}
+.item-contain li:hover {
+  cursor: pointer;
+  background-color: var(--hoverback);
 }
 
 /* .project_wrap button {

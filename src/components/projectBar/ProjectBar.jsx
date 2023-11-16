@@ -9,8 +9,37 @@ import Dropmenu from "../home/Dropmenu";
 
 const ProjectBar = () => {
   const [visible, setVisible] = useState(false);
+  const [widowview, setWindowview] = useState(false);
   const loading = useSelector((state) => state.loader);
-  // const dropdownRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const projectWrapRef = useRef(null);
+  console.log(visible);
+
+  const handleOutsideClick = (event) => {
+    if (
+      projectWrapRef.current &&
+      !projectWrapRef.current.contains(event.target) &&
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setVisible(false); // Close the menu when clicking outside
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    if (dropdownRef.current) {
+      dropdownRef.current.style.maxHeight = `${dropdownRef.current.scrollHeight}px`;
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  const handlefolder = () => {
+    setWindowview(true);
+    setVisible(false);
+  };
 
   const handleClick = () => {
     setVisible(!visible);
@@ -18,12 +47,26 @@ const ProjectBar = () => {
 
   return (
     <>
-      <div className="project_wrap" onClick={handleClick}>
+      <div className="project_wrap" ref={projectWrapRef} onClick={handleClick}>
         <h2>My Drive</h2>
         <IoMdArrowDropdown style={{ fontSize: "20px" }} />
       </div>
-      <Dropmenu />
-      {visible && !loading && <ProjectSetting setVisible={setVisible} />}
+
+      {/* //Dropmenu popup */}
+      {visible && (
+        <div className="dropmenu">
+          <ul className="item-contain" ref={dropdownRef}>
+            <li onClick={handlefolder}>New folder</li>
+            <li>File upload</li>
+            <li>Folder upload</li>
+          </ul>
+        </div>
+      )}
+
+      {/* /* //project setting window */}
+      {widowview && <ProjectSetting setWindowview={setWindowview} />}
+
+      {/* //loading logo */}
       {loading && (
         <div className="loader">
           <Oval

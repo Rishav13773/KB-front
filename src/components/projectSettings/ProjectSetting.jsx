@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setProjects } from "../../reducers/project/projectsActions";
 
-const ProjectSetting = ({ setVisible }) => {
+const ProjectSetting = ({ setWindowview }) => {
   const projectInfo = {
     projectName: "",
     description: "",
@@ -70,7 +70,7 @@ const ProjectSetting = ({ setVisible }) => {
 
   return (
     <div className="projecSetting_window">
-      <div className="icon_close" onClick={() => setVisible(false)}>
+      <div className="icon_close" onClick={() => setWindowview(false)}>
         <AiOutlineCloseCircle />
       </div>
       <h1>Start New Project</h1>
@@ -126,7 +126,7 @@ const ProjectSetting = ({ setVisible }) => {
 
             <div className="create_btn">
               <button type="submit">Create</button>
-              <button onClick={() => setVisible(false)}>Cancel</button>
+              <button onClick={() => setWindowview(false)}>Cancel</button>
             </div>
           </Form>
         )}

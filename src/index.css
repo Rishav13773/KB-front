@@ -6,3 +6,6 @@
 /* .app {
   background-color: azure;
 } */
+:root {
+  --hoverback: rgb(220, 236, 236);
+}
