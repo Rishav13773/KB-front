@@ -5,8 +5,9 @@ import ProjectSetting from "../projectSettings/ProjectSetting";
 import { useSelector } from "react-redux";
 import { Oval } from "react-loader-spinner";
 import { IoMdArrowDropdown } from "react-icons/io";
-import Dropmenu from "../home/Dropmenu";
-
+import { LuFolderPlus } from "react-icons/lu";
+import { LuFileUp } from "react-icons/lu";
+import { LuFolderUp } from "react-icons/lu";
 const ProjectBar = () => {
   const [visible, setVisible] = useState(false);
   const [widowview, setWindowview] = useState(false);
@@ -56,9 +57,18 @@ const ProjectBar = () => {
       {visible && (
         <div className="dropmenu">
           <ul className="item-contain" ref={dropdownRef}>
-            <li onClick={handlefolder}>New folder</li>
-            <li>File upload</li>
-            <li>Folder upload</li>
+            <li onClick={handlefolder}>
+              <LuFolderPlus />
+              New folder
+            </li>
+            <li>
+              <LuFileUp />
+              File upload
+            </li>
+            <li>
+              <LuFolderUp />
+              Folder upload
+            </li>
           </ul>
         </div>
       )}

@@ -35,7 +35,7 @@
   );
   border-radius: 10px;
   background-color: white;
-  max-height: 200px;
+  max-height: 100px;
   overflow: hidden;
   animation: slideDown 0.3s ease-in-out;
 }
@@ -45,12 +45,15 @@
     opacity: 0;
   }
   to {
-    max-height: 200px; /* Adjust the value based on your content */
+    max-height: 100px; /* Adjust the value based on your content */
     opacity: 1;
   }
 }
 
 .item-contain li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   list-style: none;
   padding: 5px;
   padding-left: 1rem;
