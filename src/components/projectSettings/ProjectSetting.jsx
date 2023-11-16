@@ -56,10 +56,11 @@ const ProjectSetting = ({ setVisible }) => {
           },
         }
       );
+      console.log(data.project);
       dispatch({ type: "LOADER_SHOW", payload: true });
       setTimeout(() => {
         dispatch(setProjects([...projectData, data.project]));
-        navigate("/projects");
+        navigate(`/projects/${data.project._id}`);
         dispatch({ type: "LOADER_SHOW", payload: false });
       }, 2000);
     } catch (error) {
