@@ -31,7 +31,7 @@
 }
 
 .table-title th {
-  font-family: ;
+  font-family: var(--fontfamily);
   font-size: var(--table-title-font);
   font-weight: var(--table-title-weight);
 }
