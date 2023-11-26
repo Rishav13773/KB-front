@@ -13,12 +13,53 @@
 
 .items {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  text-decoration: none;
+  color: black;
   transition: transform 0.2s ease-in-out;
 }
 
 .items:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
+}
+
+.items p {
+  font-family: var(--fontfamily);
+  font-size: var(--table-content-font);
+  font-weight: var(--table-content-weight);
+}
+
+.table-title th {
+  font-family: ;
+  font-size: var(--table-title-font);
+  font-weight: var(--table-title-weight);
+}
+
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.folders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.folders-table th,
+.folders-table td {
+  /* border: 1px solid #ddd; */
+  border-bottom: var(--tableborder);
+  padding: 3px;
+  text-align: left;
+}
+
+.folders-table th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.folder-icon {
+  font-size: var(--iconssize);
 }
