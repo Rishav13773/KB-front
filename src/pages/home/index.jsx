@@ -8,13 +8,16 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { FcFolder } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import Dropmenu from "../../components/home/Dropmenu";
+import { IoMdArrowDropdown } from "react-icons/io";
+import TypeDropdown from "../../components/home/TypeDropdown";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => ({ ...state })); //Getting user id
   const [visible, setVisible] = useState(false);
-  // const dropmenuRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const dropdownWrapRef = useRef(null);
+
   console.log(user.id);
 
   useEffect(() => {
@@ -31,18 +34,34 @@ const Home = () => {
     }
   };
 
+  const showdropdown = () => {
+    setVisible(!visible);
+  }
   return (
     <>
       <NavBar />
       <SidePanel />
       <div className="container">
         <ProjectBar />
+
+        {/* Type drpwndown */}
+        <div className="drop-type" onClick={showdropdown} ref={dropdownWrapRef}>
+          <p>Type</p>
+          <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
+        </div>
+        {visible && <div className="type-wrap" ref={dropdownRef}>
+          <TypeDropdown dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setVisible={setVisible} />
+        </div>}
+
+
+        {/* //Display folders and files */}
         <div className="table-container">
           <table className="folders-table">
             <thead>
               <tr className="table-title">
                 <th>Name</th>
                 <th>Owner</th>
+                <th>Last Modified</th>
                 <th>File Size</th>
               </tr>
             </thead>
@@ -57,7 +76,10 @@ const Home = () => {
                       </Link>
                     </td>
                     <td>Rishav</td>
+                    <td>Sep 10 2023</td>
+                    <td>2.9 MB</td>
                   </tr>
+
                 ))}
             </tbody>
           </table>

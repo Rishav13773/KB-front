@@ -18,6 +18,7 @@
 
 .dropmenu {
   position: absolute;
+  z-index: 2;
 }
 
 .item-contain {
@@ -37,7 +38,7 @@
   background-color: white;
   max-height: 100px;
   overflow: hidden;
-  animation: slideDown 0.3s ease-in-out;
+  animation: slideDown 0.2s ease-in-out;
 }
 @keyframes slideDown {
   from {

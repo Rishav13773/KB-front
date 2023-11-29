@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
   margin-top: 4rem;
   margin-left: 15rem;
 }
@@ -16,6 +16,7 @@
   align-items: center;
   text-decoration: none;
   color: black;
+  gap: 10px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -37,8 +38,10 @@
 }
 
 .table-container {
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
+  max-width: 80vw;
+  z-index: 1;
 }
 
 .folders-table {
@@ -50,7 +53,7 @@
 .folders-table td {
   /* border: 1px solid #ddd; */
   border-bottom: var(--tableborder);
-  padding: 3px;
+  padding: 8px;
   text-align: left;
 }
 
@@ -62,4 +65,31 @@
 
 .folder-icon {
   font-size: var(--iconssize);
+}
+
+.drop-type {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 70px;
+  height: 30px;
+  border: 1px solid var(--drop-border-color);
+  border-radius: 8px;
+  background-color: white;
+  margin-left: 8px;
+}
+
+.drop-type p {
+  font-family: var(--fontfamily);
+  font-size: var(--table-content-font);
+  font-weight: var(--drop-font-weigth);
+  color: var(--drop-txt-color);
+}
+
+.type-wrap {
+  position: absolute;
+  top: 0;
 }
