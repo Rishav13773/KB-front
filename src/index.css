@@ -41,4 +41,5 @@ body {
   --drop-txt-color: rgb(58, 58, 58);
   --drop-border-color: rgb(129 129 129);
   --drop-font-weigth: 500;
+  --drop-font-size: 13px;
 }

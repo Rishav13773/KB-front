@@ -74,7 +74,7 @@
   justify-content: space-around;
   padding-left: 10px;
   padding-right: 10px;
-  width: 70px;
+  width: auto;
   height: 30px;
   border: 1px solid var(--drop-border-color);
   border-radius: 8px;
@@ -89,7 +89,48 @@
   color: var(--drop-txt-color);
 }
 
+.drop-type:hover {
+  cursor: pointer;
+}
+
+.drop-modify {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  height: 30px;
+  border: 1px solid var(--drop-border-color);
+  border-radius: 8px;
+  background-color: white;
+  margin-left: 8px;
+}
+
+.drop-modify p {
+  font-family: var(--fontfamily);
+  font-size: var(--table-content-font);
+  font-weight: var(--drop-font-weigth);
+  color: var(--drop-txt-color);
+}
+
+.drop-modify:hover {
+  cursor: pointer;
+}
+
 .type-wrap {
   position: absolute;
   top: 0;
+}
+
+.modify-wrap {
+  position: absolute;
+  top: 11.5rem;
+  left: 21rem;
+}
+
+.filter-contain {
+  display: flex;
+  align-items: center;
 }

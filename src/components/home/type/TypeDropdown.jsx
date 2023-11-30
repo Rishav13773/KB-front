@@ -21,7 +21,7 @@ const TypeDropdown = ({ dropdownRef, dropdownWrapRef, setVisible }) => {
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
     if (dropdownRef.current) {
-      dropdownRef.current.style.maxHeight = `${dropdownRef.current.scrollHeight}px`;
+      dropdownRef.current.style.maxHeight = `${dropdownRef.current.scrollHeight}px`;  //For animation on click
     }
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
@@ -33,55 +33,55 @@ const TypeDropdown = ({ dropdownRef, dropdownWrapRef, setVisible }) => {
     <div>
       <ul className="type-container">
         <li>
-          <FcDocument style={{ fontSize: '25px' }} />
+          <FcDocument style={{ fontSize: '22px' }} />
           Documents
         </li>
         <li>
-          <FcRules style={{ fontSize: '25px' }} />
+          <FcRules style={{ fontSize: '22px' }} />
           Spreadsheets
         </li>
         <li>
-          <FcConferenceCall style={{ fontSize: '25px' }} />
+          <FcConferenceCall style={{ fontSize: '22px' }} />
           Presentations
         </li>
         <li>
-          <FcTemplate style={{ fontSize: '25px' }} />
+          <FcTemplate style={{ fontSize: '22px' }} />
           Forms
         </li>
         <li>
-          <FcStackOfPhotos style={{ fontSize: '25px' }} />
+          <FcStackOfPhotos style={{ fontSize: '22px' }} />
           Photos & images
         </li>
         <li>
-          <BsFiletypePdf style={{ fontSize: '25px' }} />
+          <BsFiletypePdf style={{ fontSize: '22px' }} />
           PDFs
         </li>
         <li>
-          <FcVideoCall style={{ fontSize: '25px' }} />
+          <FcVideoCall style={{ fontSize: '22px' }} />
           Videos
         </li>
         <li>
-          <FcLeftUp2 style={{ fontSize: '25px' }} />
+          <FcLeftUp2 style={{ fontSize: '22px' }} />
           Shortcuts
         </li>
         <li>
-          <FcOpenedFolder style={{ fontSize: '25px' }} />
+          <FcOpenedFolder style={{ fontSize: '22px' }} />
           Folders
         </li>
         <li>
-          <FcLink style={{ fontSize: '25px' }} />
+          <FcLink style={{ fontSize: '22px' }} />
           Sites
         </li>
         <li>
-          <FcAudioFile style={{ fontSize: '25px' }} />
+          <FcAudioFile style={{ fontSize: '22px' }} />
           Audio
         </li>
         <li>
-          <FcCloseUpMode style={{ fontSize: '25px' }} />
+          <FcCloseUpMode style={{ fontSize: '22px' }} />
           Drawings
         </li>
         <li>
-          <FcPackage style={{ fontSize: '25px' }} />
+          <FcPackage style={{ fontSize: '22px' }} />
           Archives
         </li>
       </ul>

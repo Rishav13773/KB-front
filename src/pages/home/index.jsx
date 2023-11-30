@@ -9,12 +9,15 @@ import { useSelector } from "react-redux";
 import { FcFolder } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
-import TypeDropdown from "../../components/home/TypeDropdown";
+import TypeDropdown from "../../components/home/type/TypeDropdown";
+import ModifyDrop from "../../components/home/modified/ModifyDrop";
+
 
 const Home = () => {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => ({ ...state })); //Getting user id
   const [visible, setVisible] = useState(false);
+  const [modifyview, setModifyview] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownWrapRef = useRef(null);
 
@@ -34,8 +37,11 @@ const Home = () => {
     }
   };
 
-  const showdropdown = () => {
+  const showTypeDrop = () => {
     setVisible(!visible);
+  }
+  const showModifyDrop = () => {
+    setModifyview(!modifyview);
   }
   return (
     <>
@@ -44,14 +50,28 @@ const Home = () => {
       <div className="container">
         <ProjectBar />
 
-        {/* Type drpwndown */}
-        <div className="drop-type" onClick={showdropdown} ref={dropdownWrapRef}>
-          <p>Type</p>
-          <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
+        <div className="filter-contain">
+          <div className="drop-type" onClick={showTypeDrop} ref={dropdownWrapRef}>
+            <p>Type</p>
+            <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
+          </div>
+          <div className="drop-modify" onClick={showModifyDrop} ref={dropdownWrapRef}>
+            <p>Modified</p>
+            <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
+          </div>
         </div>
+
+
+        {/* Type drpwndown */}
         {visible && <div className="type-wrap" ref={dropdownRef}>
           <TypeDropdown dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setVisible={setVisible} />
         </div>}
+
+        {/* Modify dropdown */}
+        {modifyview && <div className="modify-wrap" ref={dropdownRef}>
+          <ModifyDrop dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setModifyview={setModifyview} />
+        </div>}
+
 
 
         {/* //Display folders and files */}

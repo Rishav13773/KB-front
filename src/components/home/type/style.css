@@ -37,7 +37,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--fontfamily);
-  font-size: 13px;
+  font-size: var(--drop-font-size);
   list-style: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

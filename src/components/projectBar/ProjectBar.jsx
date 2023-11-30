@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { MdOutlineCreateNewFolder } from "react-icons/md";
+// import { MdOutlineCreateNewFolder } from "react-icons/md";
 import "./style.css";
 import ProjectSetting from "../projectSettings/ProjectSetting";
 import { useSelector } from "react-redux";
