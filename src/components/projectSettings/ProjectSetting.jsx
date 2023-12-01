@@ -1,5 +1,6 @@
-import { Formik, Field, Form } from "formik";
 import "./style.css";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, FormControlLabel, Checkbox, TextField } from "@mui/material";
+import { Formik, Field, Form } from "formik";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -22,6 +23,7 @@ const ProjectSetting = ({ setWindowview }) => {
   const dispatch = useDispatch();
   const projectData = useSelector((state) => state.projects.projects);
 
+  //Form validation to check
   const profileValidation = Yup.object({
     projectName: Yup.string()
       .required("Project Name is required")
@@ -41,6 +43,7 @@ const ProjectSetting = ({ setWindowview }) => {
 
   //Handling form submission
   const handleSubmit = async (values) => {
+    console.log('Reached')
     try {
       const formData = new FormData();
       for (let data in values) {
@@ -69,69 +72,76 @@ const ProjectSetting = ({ setWindowview }) => {
   };
 
   return (
-    <div className="projecSetting_window">
-      <div className="icon_close" onClick={() => setWindowview(false)}>
-        <AiOutlineCloseCircle />
-      </div>
-      <h1>Start New Project</h1>
-      <Formik
-        enableReinitialize
-        initialValues={{
-          projectName,
-          description,
-          isPrivate,
-        }}
-        validationSchema={profileValidation}
-        onSubmit={(values) => handleSubmit(values)}
-      >
-        {(formik) => (
-          <Form className="form">
-            <div>
-              <label htmlFor="projectName">Project name: </label>
-              <Field
-                placeholder="Enter project name"
-                onChange={handleOnChange}
-                className="name_input"
-                type="text"
-                name="projectName"
-                value={formik.values.projectName}
-              />
-            </div>
+    <Dialog open={true} onClose={() => setWindowview(false)}>
+      <DialogTitle>
+        <div className="icon_close" onClick={() => setWindowview(false)}>
+          <AiOutlineCloseCircle />
+        </div>
+        <h1>Start New Project</h1>
+      </DialogTitle>
+      <DialogContent>
+        <Formik
+          enableReinitialize
+          initialValues={{
+            projectName,
+            description,
+            isPrivate,
+          }}
+          validationSchema={profileValidation}
+          onSubmit={(values) => handleSubmit(values)}
+        >
+          {(formik) => (
+            <Form>
+              <div>
+                <TextField
+                  label="Project Name"
+                  variant="outlined"
+                  fullWidth
+                  onChange={handleOnChange}
+                  type="text"
+                  name="projectName"
+                  value={formik.values.projectName}
+                />
+              </div>
 
-            <div className="des_wrap">
-              <label htmlFor="description">Description: </label>
-              <textarea
-                placeholder="Add description"
-                onChange={handleOnChange}
-                name="description"
-                value={formik.values.description}
-                cols="30"
-                rows="5"
-              ></textarea>
-            </div>
+              <div className="des_wrap">
+                <TextField
+                  label="Description"
+                  variant="outlined"
+                  multiline
+                  rows={5}
+                  fullWidth
+                  onChange={handleOnChange}
+                  name="description"
+                  value={formik.values.description}
+                />
+              </div>
 
-            <div>
-              <label htmlFor="isPrivate">Private: </label>
-              <Field
-                type="checkbox"
-                name="isPrivate"
-                checked={formik.values.isPrivate}
-                onChange={(e) => {
-                  const flag = e.target.checked;
-                  formik.setFieldValue("isPrivate", flag);
-                }}
-                value={formik.values.isPrivate}
-              />
-            </div>
+              <div>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name="isPrivate"
+                      checked={formik.values.isPrivate}
+                      onChange={(e) => {
+                        const flag = e.target.checked;
+                        formik.setFieldValue("isPrivate", flag);
+                      }}
+                    />
+                  }
+                  label="Private"
+                />
+              </div>
+              <DialogActions>
+                <Button type="submit">Create</Button>
+                <Button onClick={() => setWindowview(false)}>Cancel</Button>
+              </DialogActions>
+            </Form>
+          )}
+        </Formik>
+      </DialogContent>
 
-            <div className="create_btn">
-              <button type="submit">Create</button>
-              <button onClick={() => setWindowview(false)}>Cancel</button>
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    </Dialog>
   );
 };
 

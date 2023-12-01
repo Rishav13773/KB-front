@@ -1,6 +1,25 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.nav-wrap {
+  z-index: 2;
+}
+
+.list-txt {
+  font-family: var(--fontfamily) !important;
+  font-size: var(--table-title-font) !important;
+  font-weight: var(--table-title-weight) !important;
+}
+.menu-items:hover {
+  background-color: var(--hoverback) !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/*
 .nav_wrap {
   display: flex;
   justify-content: space-between;
@@ -8,6 +27,7 @@ body {
   padding-right: 1em;
   padding-bottom: 10px;
   background-color: black;
+  z-index: 2 !important;
 }
 
 .text {
@@ -23,8 +43,6 @@ body {
   cursor: pointer;
   color: white;
 }
-
-/*ProfileBox*/
 
 .p_icon {
   position: relative;
@@ -66,4 +84,4 @@ body {
   background-color: #a0cfde;
   border-radius: 10px;
   width: 85%;
-}
+} */

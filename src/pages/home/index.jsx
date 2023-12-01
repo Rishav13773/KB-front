@@ -71,8 +71,11 @@ const Home = () => {
   ];
   return (
     <>
-      <NavBar />
-      <SidePanel />
+      <div style={{ display: 'flex', flexDirection: "column" }}>
+        <NavBar />
+        <SidePanel />
+      </div>
+
       <div className="container">
         <ProjectBar />
 

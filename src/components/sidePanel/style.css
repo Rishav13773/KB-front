@@ -1,14 +1,6 @@
-.checkbox_container {
-  position: absolute;
-  width: 10%;
-  height: 100vh;
-  /* margin-top: 8rem; */
-  border-right: 1px solid black;
-  /* border-radius: 10px; */
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 1rem;
+/* .sidebar_container {
+  z-index: 1 !important;
+  width: 50vw !important;
 }
 
 .checkbox_container div {
@@ -126,4 +118,23 @@
 .checkbox-wrapper-13 *:before,
 .checkbox-wrapper-13 *:after {
   box-sizing: inherit;
+} */
+
+.side_panel_wrap {
+  z-index: 1;
 }
+
+.sidebar-content {
+  padding: 16px;
+}
+
+span {
+  font-family: var(--fontfamily) !important;
+  font-size: var(--table-content-font) !important;
+  font-weight: var(--table-title-weight) !important;
+}
+
+svg {
+  font-size: 20px !important;
+}
+/* Add any additional styling as needed */
