@@ -1,5 +1,6 @@
 import './style.css'
 
+
 const SidePanel = () => {
     return (
         <div className='side_panel_wrap'>

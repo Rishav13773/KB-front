@@ -32,10 +32,10 @@ body {
   --tableborder: 1px solid #ddd;
   --iconssize: 25px;
 
-  --table-content-font: 15px;
+  --table-content-font: 14px;
   --table-content-weight: 300;
 
-  --table-title-font: 15px;
+  --table-title-font: 14px;
   --table-title-weight: 500;
 
   --drop-txt-color: rgb(58, 58, 58);

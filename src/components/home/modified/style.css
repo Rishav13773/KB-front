@@ -14,7 +14,7 @@
   );
   border-radius: 10px;
   background-color: white;
-  max-height: auto;
+  max-height: 202px;
   /* overflow: hidden; */
   animation: slideDown2 0.2s ease-in-out;
   z-index: 2;
@@ -26,7 +26,7 @@
     opacity: 0;
   }
   to {
-    max-height: auto; /* Adjust the value based on your content */
+    max-height: 202px; /* Adjust the value based on your content */
     opacity: 1;
   }
 }

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import TypeDropdown from "../../components/home/type/TypeDropdown";
 import ModifyDrop from "../../components/home/modified/ModifyDrop";
-
+import { DataGrid } from '@mui/x-data-grid';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -43,6 +43,32 @@ const Home = () => {
   const showModifyDrop = () => {
     setModifyview(!modifyview);
   }
+
+  //Add columns according to need
+  const columns = [
+    {
+      field: 'projectName', headerName: 'Project Name', flex: 1, renderCell: (params) => (
+        <Link to={`/projects/${params.row._id}`} className="items">
+          <FcFolder className="folder-icon" style={{ fontSize: "25px" }} />
+          <p>{params.row.projectName}</p>
+        </Link>
+      )
+    },
+    { field: 'owner', headerName: 'Owner', flex: 1 },
+    { field: 'date', headerName: 'Date', flex: 1 },
+    { field: 'size', headerName: 'Size', flex: 1 },
+  ];
+
+  const rows = [
+    ...data.map((item, id) => ({
+      id,
+      _id: item._id,
+      projectName: item.projectName,
+      owner: 'Rishav',
+      date: 'Sep 10 2023',
+      size: '2.9 MB',
+    })),
+  ];
   return (
     <>
       <NavBar />
@@ -67,15 +93,15 @@ const Home = () => {
           <TypeDropdown dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setVisible={setVisible} />
         </div>}
 
+
         {/* Modify dropdown */}
         {modifyview && <div className="modify-wrap" ref={dropdownRef}>
           <ModifyDrop dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setModifyview={setModifyview} />
         </div>}
 
 
-
         {/* //Display folders and files */}
-        <div className="table-container">
+        {/* <div className="table-container">
           <table className="folders-table">
             <thead>
               <tr className="table-title">
@@ -103,8 +129,21 @@ const Home = () => {
                 ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
+        <div style={{ height: 400 }} className="table-container">
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            disableColumnMenu
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+          />
 
+        </div>
 
       </div>
     </>

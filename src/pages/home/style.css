@@ -1,3 +1,17 @@
+/* MyDataGrid.css start*/
+
+/* Remove border lines */
+.css-ptkaw2-MuiDataGrid-root {
+  border-style: none !important;
+}
+
+.css-t89xny-MuiDataGrid-columnHeaderTitle {
+  font-family: var(--fontfamily) !important;
+  font-size: var(--table-title-font) !important;
+  font-weight: var(--table-title-weight) !important;
+}
+/* MyDataGrid.css end*/
+
 .container {
   display: flex;
   flex-direction: column;
@@ -38,7 +52,7 @@
 }
 
 .table-container {
-  max-height: 400px;
+  /* max-height: 400px; */
   overflow-y: auto;
   max-width: 80vw;
   z-index: 1;
