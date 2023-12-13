@@ -3,6 +3,7 @@ body {
 }
 
 .nav-wrap {
+  /* position: fixed; */
   z-index: 2;
 }
 

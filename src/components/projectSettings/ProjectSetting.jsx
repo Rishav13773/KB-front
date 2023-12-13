@@ -74,12 +74,12 @@ const ProjectSetting = ({ setWindowview }) => {
   return (
     <Dialog open={true} onClose={() => setWindowview(false)}>
       <DialogTitle>
-        <div className="icon_close" onClick={() => setWindowview(false)}>
+        {/* <div className="icon_close" onClick={() => setWindowview(false)}>
           <AiOutlineCloseCircle />
-        </div>
-        <h1>Start New Project</h1>
+        </div> */}
+        <h4>New folder</h4>
       </DialogTitle>
-      <DialogContent>
+      <DialogContent className="form-container">
         <Formik
           enableReinitialize
           initialValues={{
@@ -91,7 +91,7 @@ const ProjectSetting = ({ setWindowview }) => {
           onSubmit={(values) => handleSubmit(values)}
         >
           {(formik) => (
-            <Form>
+            <Form className="folder-form">
               <div>
                 <TextField
                   label="Project Name"

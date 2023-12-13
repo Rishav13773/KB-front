@@ -1,10 +1,10 @@
 /*PROFILE INPUT START */
-.profile_wrap{
+/* .profile_wrap {
   background-color: #a0cfde;
   margin: 20px;
   border-radius: 50px;
   padding: 5px;
-}
+} */
 
 .profile_form {
   display: flex;
@@ -73,7 +73,7 @@
 }
 /*PROFILE INPUT END */
 
-/*SHOW PROFILE START*/
+/*SHOW PROFILE START
 .sprofile_wrap {
   display: flex;
   flex-direction: column;
@@ -86,7 +86,7 @@
   padding-bottom: 30px;
 }
 
-.sprofile_wrap label{
+.sprofile_wrap label {
   margin-right: 5px;
 }
 
@@ -103,11 +103,11 @@
 .sprofile_last {
   display: flex;
 }
-.sprofile_bio{
+.sprofile_bio {
   display: flex;
   width: 500px;
 }
-.sprofile_bio p{
+.sprofile_bio p {
   word-break: break-all;
 }
 
@@ -128,3 +128,4 @@
   cursor: pointer;
   background-color: black;
 }
+*/

@@ -1,4 +1,4 @@
-.projecSetting_window {
+/* .projecSetting_window {
   position: absolute;
   left: 0;
   right: 0;
@@ -67,4 +67,14 @@
   justify-content: end;
   gap: 10px;
   margin-top: 20px;
+} */
+
+.form-container {
+  padding-top: 5px !important;
+}
+
+.folder-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  overflow-y: hidden !important; /*Disabling side scollbar */
+}
+
 /* MyDataGrid.css start*/
 
 /* Remove border lines */

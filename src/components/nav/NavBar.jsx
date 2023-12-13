@@ -15,6 +15,7 @@ import AddToDriveTwoToneIcon from '@mui/icons-material/AddToDriveTwoTone';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const pages = ['Products', 'Pricing', 'Blog'];
@@ -22,7 +23,8 @@ const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate();
-
+  const { user } = useSelector((state) => ({ ...state }));
+  const profilePicture = user.picture;
   //Open navmenu on mobile devices
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,6 +42,7 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
+  //Removing cookie for logout function
   const logout = () => {
     Cookies.remove("user")
     navigate('/')
@@ -139,7 +142,7 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt="Remy Sharp" src={profilePicture} />
                 </IconButton>
               </Tooltip>
               <Menu

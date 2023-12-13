@@ -70,7 +70,7 @@ const Home = () => {
     })),
   ];
   return (
-    <>
+    <div className="main">
       <div style={{ display: 'flex', flexDirection: "column" }}>
         <NavBar />
         <SidePanel />
@@ -149,7 +149,7 @@ const Home = () => {
         </div>
 
       </div>
-    </>
+    </div>
   );
 };
 
