@@ -11,8 +11,12 @@ import {
     ListItemText,
     Divider,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const ShowProfile = () => {
+const ShowProfile = ({setVisible} ) => {
+    const ChangeVisiblity=() =>{
+        setVisible(false);
+    }
     return (
         <Container>
             <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
@@ -49,7 +53,8 @@ const ShowProfile = () => {
                     </ListItem>
                     {/* Add more relevant fields as needed */}
                 </List>
-            </Paper>
+            </Paper> 
+            <button onClick={ChangeVisiblity}> Edit Profile </button>
         </Container>
     );
 };
