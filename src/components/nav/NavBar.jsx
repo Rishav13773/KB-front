@@ -25,6 +25,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => ({ ...state }));
   const profilePicture = user.picture;
+
   //Open navmenu on mobile devices
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

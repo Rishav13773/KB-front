@@ -3,7 +3,7 @@
   flex-direction: column;
   /* gap: 5px; */
   position: absolute;
-  margin-top: 2.2rem;
+  margin-top: 2.5rem;
   margin-right: 10px;
   width: 260px;
   /* height: auto; */
@@ -14,10 +14,10 @@
   );
   border-radius: 10px;
   background-color: white;
+  z-index: 2;
   max-height: 202px;
   /* overflow: hidden; */
   animation: slideDown2 0.2s ease-in-out;
-  z-index: 2;
 }
 
 @keyframes slideDown2 {

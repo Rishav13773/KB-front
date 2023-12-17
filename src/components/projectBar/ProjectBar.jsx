@@ -8,6 +8,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { LuFolderPlus } from "react-icons/lu";
 import { LuFileUp } from "react-icons/lu";
 import { LuFolderUp } from "react-icons/lu";
+
 const ProjectBar = () => {
   const [visible, setVisible] = useState(false);
   const [widowview, setWindowview] = useState(false);
@@ -90,6 +91,7 @@ const ProjectBar = () => {
             secondaryColor="#a0cfde"
             strokeWidth={2}
             strokeWidthSecondary={2}
+            zIndex={3}
           />
         </div>
       )}

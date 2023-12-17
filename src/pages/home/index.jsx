@@ -1,17 +1,19 @@
 /* eslint-disable no-unused-vars */
+import { FcFolder } from "react-icons/fc";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { DataGrid } from '@mui/x-data-grid';
+
+import { Link, redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useEffect, useState, useRef } from "react";
-import NavBar from "../../components/nav/NavBar";
-import ProjectBar from "../../components/projectBar/ProjectBar";
-import SidePanel from "../../components/sidePanel/SidePanel";
+
 import "./style.css";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { FcFolder } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { IoMdArrowDropdown } from "react-icons/io";
-import TypeDropdown from "../../components/home/type/TypeDropdown";
+import ProjectBar from "../../components/projectBar/ProjectBar";
+import NavBar from "../../components/nav/NavBar";
+import SidePanel from "../../components/sidePanel/SidePanel";
 import ModifyDrop from "../../components/home/modified/ModifyDrop";
-import { DataGrid } from '@mui/x-data-grid';
+import TypeDropdown from "../../components/home/type/TypeDropdown";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -24,6 +26,9 @@ const Home = () => {
   console.log(user.id);
 
   useEffect(() => {
+    if (!user) {
+      return redirect("/login")
+    }
     getItems();
   }, []);
 
@@ -47,7 +52,10 @@ const Home = () => {
   //Add columns according to need
   const columns = [
     {
-      field: 'projectName', headerName: 'Project Name', flex: 1, renderCell: (params) => (
+      field: 'projectName',
+      headerName: 'Project Name',
+      flex: 1,
+      renderCell: (params) => (
         <Link to={`/projects/${params.row._id}`} className="items">
           <FcFolder className="folder-icon" style={{ fontSize: "25px" }} />
           <p>{params.row.projectName}</p>

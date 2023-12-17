@@ -3,10 +3,10 @@
   flex-direction: column;
   position: absolute;
   /* margin-top: 2.2rem; */
-  top: 115px;
-  margin-right: 10px;
+  margin-top: 14rem;
+  margin-left: 8px;
   width: 201px;
-  height: auto;
+
   box-shadow: var(
     --dt-surface2-shadow,
     0 1px 2px 0 rgba(60, 64, 67, 0.3),
@@ -14,20 +14,19 @@
   );
   border-radius: 10px;
   background-color: white;
-  z-index: 3;
+  z-index: 2;
   max-height: auto;
-  transform: scale(1.1);
   /* overflow: hidden; */
   animation: scaleup 0.2s ease-in-out;
 }
 
 @keyframes scaleup {
   from {
-    transform: scale(0);
+    max-height: 0;
     opacity: 0;
   }
   to {
-    transform: scale(1.1);
+    max-height: auto; /* Adjust the value based on your content */
     opacity: 1;
   }
 }
@@ -36,13 +35,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  list-style: none;
+  padding: 8px;
+  padding-left: 1rem;
   font-family: var(--fontfamily);
   font-size: var(--drop-font-size);
-  list-style: none;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 3rem;
 }
 
 .type-container li:hover {

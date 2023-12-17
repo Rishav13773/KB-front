@@ -8,6 +8,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setProjects } from "../../reducers/project/projectsActions";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProjectSetting = ({ setWindowview }) => {
   const projectInfo = {
@@ -66,82 +67,91 @@ const ProjectSetting = ({ setWindowview }) => {
         navigate(`/projects/${data.project._id}`);
         dispatch({ type: "LOADER_SHOW", payload: false });
       }, 2000);
+
+      toast.success(data.message, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (error) {
       console.log(error.response.data.message);
+      toast.error(error.response.data.message, {
+        position: toast.POSITION.TOP_LEFT,
+      });
     }
   };
 
   return (
-    <Dialog open={true} onClose={() => setWindowview(false)}>
-      <DialogTitle>
-        {/* <div className="icon_close" onClick={() => setWindowview(false)}>
+    <>
+      <Dialog open={true} onClose={() => setWindowview(false)}>
+        <DialogTitle>
+          {/* <div className="icon_close" onClick={() => setWindowview(false)}>
           <AiOutlineCloseCircle />
         </div> */}
-        <h4>New folder</h4>
-      </DialogTitle>
-      <DialogContent className="form-container">
-        <Formik
-          enableReinitialize
-          initialValues={{
-            projectName,
-            description,
-            isPrivate,
-          }}
-          validationSchema={profileValidation}
-          onSubmit={(values) => handleSubmit(values)}
-        >
-          {(formik) => (
-            <Form className="folder-form">
-              <div>
-                <TextField
-                  label="Project Name"
-                  variant="outlined"
-                  fullWidth
-                  onChange={handleOnChange}
-                  type="text"
-                  name="projectName"
-                  value={formik.values.projectName}
-                />
-              </div>
+          <h4>New folder</h4>
+        </DialogTitle>
+        <DialogContent className="form-container">
+          <Formik
+            enableReinitialize
+            initialValues={{
+              projectName,
+              description,
+              isPrivate,
+            }}
+            validationSchema={profileValidation}
+            onSubmit={(values) => handleSubmit(values)}
+          >
+            {(formik) => (
+              <Form className="folder-form">
+                <div>
+                  <TextField
+                    label="Project Name"
+                    variant="outlined"
+                    fullWidth
+                    onChange={handleOnChange}
+                    type="text"
+                    name="projectName"
+                    value={formik.values.projectName}
+                  />
+                </div>
 
-              <div className="des_wrap">
-                <TextField
-                  label="Description"
-                  variant="outlined"
-                  multiline
-                  rows={5}
-                  fullWidth
-                  onChange={handleOnChange}
-                  name="description"
-                  value={formik.values.description}
-                />
-              </div>
+                <div className="des_wrap">
+                  <TextField
+                    label="Description"
+                    variant="outlined"
+                    multiline
+                    rows={5}
+                    fullWidth
+                    onChange={handleOnChange}
+                    name="description"
+                    value={formik.values.description}
+                  />
+                </div>
 
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name="isPrivate"
-                      checked={formik.values.isPrivate}
-                      onChange={(e) => {
-                        const flag = e.target.checked;
-                        formik.setFieldValue("isPrivate", flag);
-                      }}
-                    />
-                  }
-                  label="Private"
-                />
-              </div>
-              <DialogActions>
-                <Button type="submit">Create</Button>
-                <Button onClick={() => setWindowview(false)}>Cancel</Button>
-              </DialogActions>
-            </Form>
-          )}
-        </Formik>
-      </DialogContent>
-
-    </Dialog>
+                <div>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name="isPrivate"
+                        checked={formik.values.isPrivate}
+                        onChange={(e) => {
+                          const flag = e.target.checked;
+                          formik.setFieldValue("isPrivate", flag);
+                        }}
+                      />
+                    }
+                    label="Private"
+                  />
+                </div>
+                <DialogActions>
+                  <Button type="submit">Create</Button>
+                  <Button onClick={() => setWindowview(false)}>Cancel</Button>
+                </DialogActions>
+              </Form>
+            )}
+          </Formik>
+        </DialogContent>
+      </Dialog>
+      <ToastContainer />
+    </>
   );
 };
 

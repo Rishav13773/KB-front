@@ -10,7 +10,7 @@ import MailIcon from '@mui/icons-material/Mail';
 
 const SidePanel = () => {
     return (
-        <div className='side_panel_wrap'>
+        <aside className='side_panel_wrap'>
             <Drawer
                 variant="permanent"
                 sx={{
@@ -34,7 +34,7 @@ const SidePanel = () => {
                     ))}
                 </List>
             </Drawer>
-        </div>
+        </aside>
 
     );
 }
