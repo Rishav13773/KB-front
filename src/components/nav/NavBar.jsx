@@ -12,10 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AddToDriveTwoToneIcon from '@mui/icons-material/AddToDriveTwoTone';
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
+
+import Cookies from "js-cookie";
 
 const NavBar = () => {
   const pages = ['Products', 'Pricing', 'Blog'];

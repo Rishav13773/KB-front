@@ -8,12 +8,12 @@ const Project = () => {
   return (
     <div>
       <NavBar />
-      <DocumentBar setVisible={setVisible} />
-      {visible && (
-        <div className="null_txt">
-          <h1>There are no files in this project</h1>
-        </div>
-      )}
+
+      <div className="null_txt">
+        <h1>There are no files in this project</h1>
+        <DocumentBar setVisible={setVisible} />
+      </div>
+
     </div>
   );
 };
