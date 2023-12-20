@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DocumentBar from "../../components/documentBar/DocumentBar";
+import Uploader from "../../components/uploader/Uploader";
 import NavBar from "../../components/nav/NavBar";
 import "./style.css";
 
@@ -11,7 +11,7 @@ const Project = () => {
 
       <div className="null_txt">
         <h1>There are no files in this project</h1>
-        <DocumentBar setVisible={setVisible} />
+        <Uploader setVisible={setVisible} />
       </div>
 
     </div>
