@@ -1,5 +1,7 @@
 // ProfilePage.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import {
     Container,
     Paper,
@@ -13,10 +15,22 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const ShowProfile = ({setVisible} ) => {
+
+const ShowProfile = ({profile, setVisible} ) => {
+   
+
+    const { user } = useSelector((state) => ({ ...state }));
+    const { token } = user;
+    const { firstName, lastName, bio, picture } = profile;
+
+    console.log("profile in showProfile ", profile);
+    // console.log("picture from profile: ". )
+
     const ChangeVisiblity=() =>{
         setVisible(false);
     }
+
+   
     return (
         <Container>
             <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
@@ -24,26 +38,26 @@ const ShowProfile = ({setVisible} ) => {
                     <Grid item xs={12} md={3} align="center">
                         <Avatar
                             alt="Profile Picture"
-                            src="https://via.placeholder.com/150"
+                            src={picture}
                             sx={{ width: 150, height: 150 }}
                         />
                     </Grid>
                     <Grid item xs={12} md={9}>
                         <Typography variant="h4" gutterBottom>
-                            Your Name
+                            {firstName} {lastName}
                         </Typography>
-                        <Typography variant="subtitle1" gutterBottom>
-                            Your Email
-                        </Typography>
+                        {/* <Typography variant="subtitle1" gutterBottom>
+                            {email}
+                        </Typography> */}
                         <Typography variant="body1" paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            {bio}
                         </Typography>
                     </Grid>
                 </Grid>
                 <Divider style={{ margin: '20px 0' }} />
                 <List>
                     <ListItem>
-                        <ListItemText primary="Bio" secondary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                        <ListItemText primary="Bio" secondary={bio} />
                     </ListItem>
                     <ListItem>
                         <ListItemText primary="Location" secondary="City, Country" />
