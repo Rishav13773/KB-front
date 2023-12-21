@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { setProjects } from "../../reducers/project/projectsActions";
 import { toast, ToastContainer } from "react-toastify";
 
-const ProjectSetting = ({ setWindowview }) => {
+const ProjectSetting = ({ setWindowView }) => {
   const projectInfo = {
     projectName: "",
     description: "",
@@ -79,9 +79,13 @@ const ProjectSetting = ({ setWindowview }) => {
     }
   };
 
+  const handleClose = () => {
+    setWindowView(false);
+  }
+
   return (
     <>
-      <Dialog open={true} onClose={() => setWindowview(false)}>
+      <Dialog open={true} onClose={handleClose}>
         <DialogTitle>
           {/* <div className="icon_close" onClick={() => setWindowview(false)}>
           <AiOutlineCloseCircle />
@@ -143,7 +147,7 @@ const ProjectSetting = ({ setWindowview }) => {
                 </div>
                 <DialogActions>
                   <Button type="submit">Create</Button>
-                  <Button onClick={() => setWindowview(false)}>Cancel</Button>
+                  <Button onClick={handleClose}>Cancel</Button>
                 </DialogActions>
               </Form>
             )}

@@ -13,7 +13,6 @@ const Project = () => {
         <h1>There are no files in this project</h1>
         <Uploader setVisible={setVisible} />
       </div>
-
     </div>
   );
 };
