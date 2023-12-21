@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { DropzoneDialog } from "material-ui-dropzone";
 import { useState } from "react";
 
-const DocumentBar = () => {
+const Uploader = () => {
   const [open, setOpen] = useState(false) //handle dropzone file state
 
   return (
@@ -32,4 +32,4 @@ const DocumentBar = () => {
   );
 };
 
-export default DocumentBar;
+export default Uploader;

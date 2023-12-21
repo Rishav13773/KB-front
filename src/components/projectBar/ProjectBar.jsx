@@ -1,84 +1,86 @@
-import React, { useState, useRef, useEffect } from "react";
-// import { MdOutlineCreateNewFolder } from "react-icons/md";
-import "./style.css";
-import ProjectSetting from "../projectSettings/ProjectSetting";
-import { useSelector } from "react-redux";
-import { Oval } from "react-loader-spinner";
+import React, { useState } from "react";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  // IconButton,
+  Typography,
+} from "@mui/material";
+
 import { IoMdArrowDropdown } from "react-icons/io";
-import { LuFolderPlus } from "react-icons/lu";
-import { LuFileUp } from "react-icons/lu";
-import { LuFolderUp } from "react-icons/lu";
+import { LuFolderPlus, LuFileUp, LuFolderUp } from "react-icons/lu";
+import ProjectSetting from "../projectSettings/ProjectSetting";
+// import { useSelector } from "react-redux";
 
 const ProjectBar = () => {
-  const [visible, setVisible] = useState(false);
-  const [widowview, setWindowview] = useState(false);
-  const loading = useSelector((state) => state.loader);
-  const dropdownRef = useRef(null);
-  const projectWrapRef = useRef(null);
-  console.log(visible);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [windowView, setWindowView] = useState(false);
+  // const loading = useSelector((state) => state.loader);
 
-  const handleOutsideClick = (event) => {
-    if (
-      projectWrapRef.current &&
-      !projectWrapRef.current.contains(event.target) &&
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
-    ) {
-      setVisible(false); // Close the menu when clicking outside
-    }
+  const handleFolder = () => {
+    setWindowView(true);
+    setAnchorEl(null);
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    if (dropdownRef.current) {
-      dropdownRef.current.style.maxHeight = `${dropdownRef.current.scrollHeight}px`;
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
-
-  const handlefolder = () => {
-    setWindowview(true);
-    setVisible(false);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleClick = () => {
-    setVisible(!visible);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
+
+  // const handleOutsideClick = (event) => {
+  //   if (anchorEl && !anchorEl.contains(event.target)) {
+  //     setAnchorEl(null);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, [anchorEl]);
 
   return (
     <>
-      <div className="project_wrap" ref={projectWrapRef} onClick={handleClick}>
-        <h2>My Drive</h2>
-        <IoMdArrowDropdown style={{ fontSize: "20px" }} />
+      <div>
+        <Button
+          onClick={handleClick}
+          endIcon={<IoMdArrowDropdown style={{ fontSize: "20px" }} />}
+        >
+          <Typography variant="h6">My Drive</Typography>
+        </Button>
       </div>
 
-      {/* //Dropmenu popup */}
-      {visible && (
-        <div className="dropmenu">
-          <ul className="item-contain" ref={dropdownRef}>
-            <li onClick={handlefolder}>
-              <LuFolderPlus />
-              New folder
-            </li>
-            <li>
-              <LuFileUp />
-              File upload
-            </li>
-            <li>
-              <LuFolderUp />
-              Folder upload
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* Dropmenu popup */}
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <MenuItem onClick={handleFolder} className="items">
+          <LuFolderPlus />
+          New folder
+        </MenuItem>
+        <MenuItem className="items">
+          <LuFileUp />
+          File upload
+        </MenuItem >
+        <MenuItem className="items">
+          <LuFolderUp />
+          Folder upload
+        </MenuItem>
+      </Menu>
 
-      {/* /* //project setting window */}
-      {widowview && <ProjectSetting setWindowview={setWindowview} />}
+      {/* Project setting window */}
+      {windowView && <ProjectSetting setWindowView={setWindowView} />}
 
-      {/* //loading logo */}
-      {loading && (
+      {/* Loading logo */}
+      {/* {loading && (
         <div className="loader">
           <Oval
             height={80}
@@ -94,7 +96,7 @@ const ProjectBar = () => {
             zIndex={3}
           />
         </div>
-      )}
+      )} */}
     </>
   );
 };

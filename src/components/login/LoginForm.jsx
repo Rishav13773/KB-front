@@ -13,6 +13,8 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const [login, setLogin] = useState(loginInfos);
     const { email, password } = login;
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleLoginChange = (e) => {
         const { name, value } = e.target;
@@ -26,8 +28,7 @@ const LoginForm = () => {
             .max(100),
         password: Yup.string().required("Password is required"),
     });
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+
     const loginSubmit = async () => {
         try {
             setLoading(true);
@@ -38,13 +39,18 @@ const LoginForm = () => {
                     password,
                 }
             );
-            dispatch({ type: "LOGIN", payload: data });
             console.log(data)
-            Cookies.set("user", JSON.stringify(data));
-            navigate("/home");
+            setTimeout(() => {
+                dispatch({ type: "LOGIN", payload: data });
+                Cookies.set("user", JSON.stringify(data));
+                navigate("/home");
+            }, 2000);
         } catch (error) {
             setLoading(false);
             setError(error.response.data.message);
+            toast.error(error.response.data.message, {
+                position: toast.POSITION.TOP_LEFT,
+            });
         }
     };
 
@@ -77,6 +83,7 @@ const LoginForm = () => {
             <div className="reg_nav">
                 <h5>Don't have an account ? <span style={{ color: '#a0cfde', cursor: 'pointer' }} onClick={() => navigate('/')}>Sign up</span></h5>
             </div>
+            <ToastContainer />
         </div>
     )
 }
