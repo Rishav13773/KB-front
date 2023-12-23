@@ -18,10 +18,10 @@ import TypeDropdown from "../../components/home/type/TypeDropdown";
 const Home = () => {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => ({ ...state })); //Getting user id
-  const [visible, setVisible] = useState(false);
-  const [modifyview, setModifyview] = useState(false);
-  const dropdownRef = useRef(null);
-  const dropdownWrapRef = useRef(null);
+  // const [visible, setVisible] = useState(false);
+  // const [modifyview, setModifyview] = useState(false);
+  // const dropdownRef = useRef(null);
+  // const dropdownWrapRef = useRef(null);
 
   console.log(user.id);
 
@@ -41,13 +41,6 @@ const Home = () => {
       console.log(error);
     }
   };
-
-  const showTypeDrop = () => {
-    setVisible(!visible);
-  }
-  const showModifyDrop = () => {
-    setModifyview(!modifyview);
-  }
 
   //Add columns according to need
   const columns = [
@@ -88,27 +81,9 @@ const Home = () => {
         <ProjectBar />
 
         <div className="filter-contain">
-          <div className="drop-type" onClick={showTypeDrop} ref={dropdownWrapRef}>
-            <p>Type</p>
-            <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
-          </div>
-          <div className="drop-modify" onClick={showModifyDrop} ref={dropdownWrapRef}>
-            <p>Modified</p>
-            <IoMdArrowDropdown style={{ color: "rgb(58, 58, 58)" }} />
-          </div>
+          <TypeDropdown />
+          <ModifyDrop />
         </div>
-
-
-        {/* Type drpwndown */}
-        {visible && <div className="type-wrap" ref={dropdownRef}>
-          <TypeDropdown dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setVisible={setVisible} />
-        </div>}
-
-
-        {/* Modify dropdown */}
-        {modifyview && <div className="modify-wrap" ref={dropdownRef}>
-          <ModifyDrop dropdownRef={dropdownRef} dropdownWrapRef={dropdownWrapRef} setModifyview={setModifyview} />
-        </div>}
 
 
         {/* //Display folders and files */}
@@ -153,9 +128,7 @@ const Home = () => {
             }}
             pageSizeOptions={[5, 10]}
           />
-
         </div>
-
       </div>
     </div>
   );

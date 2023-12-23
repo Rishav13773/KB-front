@@ -85,7 +85,11 @@
   font-size: var(--iconssize);
 }
 
-.drop-type {
+.filter-contain {
+  display: flex;
+  align-items: center;
+}
+/* .drop-type {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -147,8 +151,4 @@
   top: 11.5rem;
   left: 21rem;
 }
-
-.filter-contain {
-  display: flex;
-  align-items: center;
-}
+*/

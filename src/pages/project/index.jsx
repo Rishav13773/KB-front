@@ -8,11 +8,7 @@ const Project = () => {
   return (
     <div>
       <NavBar />
-
-      <div className="null_txt">
-        <h1>There are no files in this project</h1>
-        <Uploader setVisible={setVisible} />
-      </div>
+      <Uploader setVisible={setVisible} />
     </div>
   );
 };

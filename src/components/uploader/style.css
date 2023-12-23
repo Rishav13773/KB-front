@@ -1,3 +1,45 @@
+.null_txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.null_txt h1 {
+  font-weight: lighter;
+  color: cadetblue;
+  opacity: 50%;
+}
+
+/* style.css */
+
+.upload-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.filepond--root {
+  max-width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5rem;
+  margin-top: 5rem;
+}
+.filepond--item {
+  width: calc(50% - 0.5em) !important ;
+  /* height: 12em !important ; */
+}
+
+.filepond--panel-root {
+  border-radius: 2em;
+  background-color: transparent !important;
+  border: 1px solid #ccc !important;
+  height: 5em !important;
+}
 /* .projectBar_wrap {
   display: flex;
   padding: 10px;
